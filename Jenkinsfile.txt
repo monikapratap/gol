@@ -9,22 +9,14 @@ agent
   maven "MAVEN_HOME"
   }
  stages {
-   stage('build')
-   {
-     steps {
-        bat 'mvn clean install'
-  }    
-}
-
-
-    stage('deploy')
+ stage('deploy')
     {
     steps 
       { 
-        bat 'stop Tomcat7.0'
+        bat 'sc stop Tomcat7.0'
         bat 'ping localhost:8888'
         bat 'xcopy /y C:\\Program Files (x86)\\jenkins_slave\\workspace\\demo_Pipeline\\gameoflife-web\\target\\gameoflife.war "C:\\Program Files\\Apache Software Foundation\\Tomcat 7.0\\webapps"'
-        bat 'start Tomcat7.0'
+        bat 'sc start Tomcat7.0'
       }
       }
      }
