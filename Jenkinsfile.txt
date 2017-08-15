@@ -16,6 +16,7 @@ agent
        {
     bat 'mvn clean install' 
     }
+    }
  stage('deploy')
     {
     steps 
@@ -25,3 +26,4 @@ agent
       }
      }
    }
+   
