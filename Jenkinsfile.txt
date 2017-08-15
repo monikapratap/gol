@@ -17,3 +17,13 @@ agent
     }
 }
 }
+
+
+    stage('deploy')
+    {
+    steps 
+      {
+        bat 'ping localhost8888'
+        bat 'xcopy C:\Program Files (x86)\jenkins_slave\workspace\demo_Pipeline\gameoflife-web\targetgameoflife.war "C:\Program Files\Apache Software Foundation\Tomcat 7.0\webapps"'
+        bat 'sc start Tomcat7'
+      }
